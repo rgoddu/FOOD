@@ -1,0 +1,10 @@
+#contentCard{
+    height: 140px;
+    overflow: hidden;
+    background-color: white
+}
+
+#foodPicture{
+    max-height: 150px;
+    /* width: 100px; */
+}

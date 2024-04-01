@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import './menuItemStyle.css'
 
 import { QUERY_MENUITEMS } from '../utils/queries';
 import { useMutation } from '@apollo/client';

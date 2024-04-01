@@ -15,11 +15,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/', // Match the root URL
-        element: <LoginPage /> // Render LoginPage component
+        element: <HomePage /> // Render LoginPage component
       },
       {
-        path: '/home',
-        element: <HomePage />
+        path: '/login',
+        element: <LoginPage />
       },
       {
         path: '/signup',
