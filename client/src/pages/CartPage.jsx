@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from "../components/Nav";
-import Container from '@mui/material/Container';
 import Footer from '../components/Footer';
 import { useStoreContext } from '../utils/GlobalState';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 
 export default function CartPage() {
   const [state, dispatch] = useStoreContext();
@@ -31,50 +27,44 @@ export default function CartPage() {
   return (
     <>
       <NavBar />
-      <Container>
-        <Box textAlign="center">
-          <Typography variant="h2" gutterBottom>
-            Cart
-          </Typography>
+      <div style={{ margin: '0 auto', padding: '20px', maxWidth: '800px' }}>
+        <div style={{ textAlign: 'center' }}>
+          <h2>Cart</h2>
           {state.cart && Array.isArray(state.cart) && state.cart.map((item, index) => (
             <React.Fragment key={index}>
-              <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Typography variant="h5">{item.name}</Typography>
-                <Box borderLeft="1px solid white" height="auto" flex="0 0 auto" />
-                <Typography variant="h5">${item.price}</Typography>
-              </Box>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h5>{item.name}</h5>
+                <div style={{ borderLeft: '1px solid white', height: 'auto', flex: '0 0 auto' }} />
+                <h5>${item.price}</h5>
+              </div>
             </React.Fragment>
           ))}
-          <Box mt={3} display="flex" justifyContent="space-between">
-            <Typography variant="h6">Subtotal:</Typography>
-            <Typography variant="h6">${subtotal.toFixed(2)}</Typography>
-          </Box>
-          <Box display="flex" justifyContent="space-between">
-            <Typography variant="h6">Tax (7.35%):</Typography>
-            <Typography variant="h6">${tax.toFixed(2)}</Typography>
-          </Box>
-          <Box mt={1} display="flex" justifyContent="space-between">
-            <Typography variant="h4">Total:</Typography>
-            <Typography variant="h4">${total.toFixed(2)}</Typography>
-          </Box>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '15px' }}>
+            <h6>Subtotal:</h6>
+            <h6>${subtotal.toFixed(2)}</h6>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <h6>Tax (7.35%):</h6>
+            <h6>${tax.toFixed(2)}</h6>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+            <h4>Total:</h4>
+            <h4>${total.toFixed(2)}</h4>
+          </div>
           {!orderPlaced && (
-            <Button variant="contained" color="primary" onClick={handlePlaceOrder} style={{ marginTop: '20px' }}>
+            <button onClick={handlePlaceOrder} style={{ marginTop: '20px', backgroundColor: 'blue', color: 'white', padding: '10px', border: 'none', cursor: 'pointer' }}>
               Place Order
-            </Button>
+            </button>
           )}
           {orderPlaced && (
             <React.Fragment>
-              <Typography variant="h5" color="white" style={{ marginTop: '20px' }}>
-                Your order has been placed!
-              </Typography>
-              <Typography variant="h5" color="white">
-                Your order will be ready for pickup in 20-30 minutes.
-              </Typography>
+              <h5 style={{ marginTop: '20px', color: 'white' }}>Your order has been placed!</h5>
+              <h5 style={{ color: 'white' }}>Your order will be ready for pickup in 20-30 minutes.</h5>
             </React.Fragment>
           )}
-        </Box>
-        <Footer />
-      </Container>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }

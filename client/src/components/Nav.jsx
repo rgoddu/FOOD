@@ -1,26 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Stack } from '@mui/material';
 
 export default function NavBar() {
     return (
-        <AppBar>
-            <Toolbar sx={{
-                backgroundColor: '#ff66a3', // Pink background color
+        <header style={{
+            backgroundColor: '#ff66a3', // Pink background color
+            padding: '10px 20px',
+        }}>
+            <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                padding: '0 20px',
             }}>
-                <Typography variant='h2' component='div' style={{ textStroke: '1px black', padding: '10px' }}>
-                    Dev Diner
-                </Typography>
-                <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                    <Link to="/home" style={{ color: 'white', textDecoration: 'none', fontSize: '25px', marginRight: '20px' }}>Home</Link>
-                    <Link to="/menu" style={{ color: 'white', textDecoration: 'none', fontSize: '25px', marginRight: '20px' }}>Menu</Link>
-                    <Link to="/cart" style={{ color: 'white', textDecoration: 'none', fontSize: '25px' }}>Cart</Link>
-                </Stack>
-            </Toolbar>
-        </AppBar>
-    )
+                <h2 style={{
+                    fontSize: '32px',
+                    fontWeight: 'bold',
+                    textStroke: '1px black',
+                    margin: '0',
+                }}>
+                    <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Dev Diner</Link>
+                </h2>
+                <nav>
+                    <ul style={{ listStyleType: 'none', margin: '0', padding: '0' }}>
+                        <li style={{ display: 'inline', marginRight: '20px' }}>
+                            <Link to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '25px' }}>Home</Link>
+                        </li>
+                        <li style={{ display: 'inline', marginRight: '20px' }}>
+                            <Link to="/menu" style={{ color: 'white', textDecoration: 'none', fontSize: '25px' }}>Menu</Link>
+                        </li>
+                        <li style={{ display: 'inline' }}>
+                            <Link to="/cart" style={{ color: 'white', textDecoration: 'none', fontSize: '25px' }}>Cart</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    );
 }
