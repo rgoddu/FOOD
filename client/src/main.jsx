@@ -4,7 +4,7 @@ import App from './App.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import SignUp from './pages/SignUpPage.jsx';
-import MenuPage from './pages/MenuPage.jsx';
+import MenuPage from './pages/menuPage.jsx';
 import CartPage from './pages/CartPage.jsx';
 import './index.css'
 

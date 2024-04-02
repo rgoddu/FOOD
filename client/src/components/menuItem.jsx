@@ -25,8 +25,8 @@ const MenuItemCard = ({ id, name, description, price, imageUrl, addToCart }) => 
 
     return (
         <div className="card" style={{ width: '180px' }}>
-            <img id="foodPicture" src={imageUrl} alt={name}/>
-            <div style={{ height: '140px', overflow: 'hidden' }}>
+            <img id="foodPicture" src={imageUrl} alt={name} />
+            <div id="foodInfo">
                 <div className="card-content">
                     <h5>{name}</h5>
                     <p>{description}</p>

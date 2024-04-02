@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from "../components/Nav";
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-// import MenuItemCard from "../components/Menu-Item";
-import MenuItemCard from "../components/Test";
+import MenuItemCard from "../components/menuItem";
 import CategoryNav from "../components/CategoryNav";
 import AddCategoryForm from '../components/AddCategoryForm';
 import AddMenuItemForm from '../components/AddMenuItemForm';
+
 
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../utils/GlobalState';
@@ -101,11 +99,11 @@ export default function MenuPage() {
   return (
     <>
       <NavBar />
-      <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
         <div style={{ marginTop: '100px', width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-          <CategoryNav categories={categories} scrollToCategory={handleScrollToCategory} style={{ height: '100px', width: '100px' }} />
+          <CategoryNav categories={categories} scrollToCategory={handleScrollToCategory} />
           <div style={{ width: '200px' }}>
-            <AddCategoryForm onCategorySubmit={onCategorySubmit} style={{ height: '100px', width: '100px' }} />
+            <AddCategoryForm onCategorySubmit={onCategorySubmit} />
           </div>
         </div>
         <div style={{ width: '100%' }}>
@@ -113,9 +111,9 @@ export default function MenuPage() {
             <div key={category._id} id={category.categoryName} style={{ marginBottom: '20px', position: 'relative' }}> 
               <h2>{category.categoryName}</h2>
               <button style={{ position: 'absolute', top: '5px', right: '5px' }} onClick={() => handleDeleteCategory(category._id)}>Delete Category</button>
-              <Grid container spacing={2}>
+              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {menuItemsByCategory[category._id]?.map((item, index) => (
-                  <Grid item xs={6} sm={4} md={3} lg={3} key={index}>
+                  <div key={index} style={{ marginRight: '10px', marginBottom: '10px' }}>
                     <MenuItemCard
                       id={item._id}
                       name={item.foodName}
@@ -124,15 +122,15 @@ export default function MenuPage() {
                       imageUrl={item.foodPicture}
                       addToCart={addToCart}
                     />
-                  </Grid>
+                  </div>
                 ))}
-              </Grid>
+              </div>
               <button onClick={() => handleToggleMenuItemForm(category)}>Add Menu Item</button>
               {openForms.includes(category._id) && <AddMenuItemForm categoryId={category._id} onSubmit={handleAddMenuItem} />}
             </div>
           ))}
         </div>
-      </Container>
+      </div>
     </>
   );
 }
