@@ -91,10 +91,3 @@ API documentation should be provided for backend endpoints.
 Unit tests should be written for critical functionalities.
 Integration tests should be conducted to ensure smooth interaction between components.
 End-to-end testing should be performed to validate user workflows.
-
-## Questions
-For questions the project, I can be contacted through GitHub or via email.
-
-GitHub - https://github.com/charleswgillespie
-
-Email - charlesgillespiew@gmail.com
